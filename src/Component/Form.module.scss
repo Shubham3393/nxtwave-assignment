@@ -1,0 +1,61 @@
+@import '../SCSS/mixin.scss';
+@import '../SCSS/variable.scss';
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .input_box{
+        display: flex;
+        flex-direction: column;
+        margin: $margin-small 0rem $margin-small 0rem;
+
+        .label{
+            text-transform: uppercase;
+            margin: $margin-small 0rem $margin-small 0rem;
+            color: $text-color;
+            font-size: 1.2rem;
+        }
+
+        .input{
+            border: 1px $border-grey-color solid;
+            background-color: white;
+            height: $height;
+            width: 32rem;
+            box-sizing: border-box;
+            padding: 0rem 1.5rem 0rem 1.5rem;
+
+            @include respond(S600){
+                width: 20rem;
+                height: calc($height / 2);
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+
+        .link{
+            color: $btn-blue-color;
+        }
+
+        .tag{
+            color: $text-color;
+        }
+
+        .description{
+            height: calc($height*2);
+            background-color: red($color: #000000);
+        }
+    }
+
+    .btn{
+        margin-top: calc($margin-in-between + $margin-small);
+        @include button(9rem, $btn-blue-color);
+        @include respond(S600){
+            font-size: 1.3rem;
+        }
+    }
+}

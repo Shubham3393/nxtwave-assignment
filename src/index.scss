@@ -1,0 +1,43 @@
+@import './SCSS/variable.scss';
+@import './SCSS/mixin.scss';
+
+html{
+  font-size: 62.5%;
+
+  @include respond(S1800){
+    font-size: 100%;
+  }
+
+  @include respond(S1200){
+    font-size: 57%;
+  }
+
+  @include respond(S600){
+    font-size: 50%;
+  }
+
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: $bg-color;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.invalid{
+  margin-top: -1rem;
+  color: rgba(255, 0, 0, 0.685);
+  font-size: 12px;
+}
+
+

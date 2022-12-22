@@ -1,0 +1,38 @@
+@import '../SCSS/variable.scss';
+
+@mixin button ($width, $color){
+    background-color: $color;
+    height: $height;
+    width: $width;
+    border: none;
+    border-radius: $border-radius;
+    color: white;
+    cursor: pointer;
+
+    &:active{
+        transform: translate(-2px, -2px);
+    }
+}
+
+@mixin respond($breakpoint){
+    @if $breakpoint == S600 {
+        @media(max-width : 600px) {@content};
+    }
+    
+    @if $breakpoint == S900 {
+        @media(max-width : 900px) {@content};
+    }
+
+    @if $breakpoint == S1200 {
+        @media(max-width : 1200px) {@content};
+    }
+
+    @if $breakpoint == S1500 {
+        @media(max-width : 1500px) {@content};
+    }
+
+    @if $breakpoint == S1800 {
+        @media(min-width : 1800px) {@content};
+    }
+
+}

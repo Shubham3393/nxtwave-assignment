@@ -1,0 +1,68 @@
+@import '../SCSS/mixin.scss';
+@import '../SCSS/variable.scss';
+
+// $card-width : calc((100% - ($padding-theme-left*2) - ($margin-in-between*2))/3);
+
+
+.card{
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+    // box-sizing: border-box;
+    width: 31rem;
+    border-radius: $border-radius;
+    margin:  0rem $margin-in-between   $margin-in-between 0rem;
+    @include respond(S1500){
+        width: 24rem;
+    }
+
+    @include respond(S1500){
+        width: 17rem;
+        padding: 1.7rem;
+    }
+
+    .icon_tit_cat{
+        display: flex;
+        justify-content: flex-start;
+
+        .icon{
+            height : 5rem;
+            width: 5rem;
+            border-color: $border-grey-color;
+        }
+
+        .tit_cat{
+            display: flex;
+            flex-direction: column;
+            margin: 0rem 2rem 0rem 2rem;
+            .title{
+                font-size: 2rem;
+                @include respond(S1200){
+                    font-size: 1.4rem;
+                }
+            }
+
+            .category{
+                font-size: 1.5rem;
+                @include respond(S1200){
+                    font-size: 1rem;
+                }
+                color: $text-color;
+            }
+        }
+    }
+
+    .link{
+        margin: $margin-in-between 0rem $margin-in-between 0rem;
+        font-size: 1.5rem;
+        color: $btn-blue-color;
+    }
+
+    .description{
+        margin-bottom: calc($margin-in-between / 2);
+        font-size: 1.5rem;
+        color: $text-color;
+    }
+}

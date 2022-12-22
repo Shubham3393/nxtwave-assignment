@@ -1,0 +1,108 @@
+@import '../SCSS/mixin.scss';
+@import '../SCSS/variable.scss';
+
+
+.addItemBtn{
+    margin-right: $height;
+    @include button(11rem, $btn-green-color);
+
+    @include respond(S1800){
+        font-size: 1.5rem;
+      }
+    @include respond(S1500){
+        font-size: 1.5rem;
+      }
+
+      @include respond(S900){
+        font-size: 1rem;
+      }
+      @include respond(S600){
+        font-size: 0.8rem;
+      }
+
+}
+
+.theme{
+    .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn{
+            @include button(20rem, #d7dfe93d);
+            border: 1px $border-grey-color solid;
+            color: black;
+            @include respond(S1800){
+                font-size: 1.5rem;
+              }
+            @include respond(S1500){
+                font-size: 1.5rem;
+              }
+        }
+    }
+
+    .search{
+        background-color: white;
+        border: 1px $border-grey-color solid;
+        border-radius: $border-radius;
+        height: $height;
+        max-width: 65rem;
+        display: flex;
+        align-items: center;
+        margin: $margin-in-between 0 $margin-in-between 0;
+
+        &_icon{
+            height: 1.5rem;
+            width: 1.5rem;
+            margin: 1rem;
+
+            &:active{
+                transform: translateY(2px);
+            }
+        }
+
+        &_input{
+            height: 3rem;
+            width: 95%;
+            border: none;
+            @include respond(S900){
+                font-size: 1.5rem;
+              }
+              @include respond(S1800){
+                font-size: 1.5rem;
+              }
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    .cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .paginationBtn{
+            cursor: pointer;
+            background-color: $bg-color;
+            border: none;
+            color: $btn-blue-color;
+            font-size: 2.5rem;
+
+            &:disabled{
+                cursor: none;
+                color: $text-color;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+

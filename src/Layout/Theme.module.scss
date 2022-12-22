@@ -1,0 +1,6 @@
+@import '../SCSS/variable.scss';
+$card-width : calc((100% - ($padding-theme-left*2) - ($margin-in-between*2))/3);
+
+.theme{
+    padding: $padding-theme-top $padding-theme-left 0rem $padding-theme-left;
+}

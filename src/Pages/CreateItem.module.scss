@@ -1,0 +1,55 @@
+@import '../SCSS/mixin.scss';
+@import '../SCSS/variable.scss';
+
+
+.createItem{
+    display: flex;
+
+    .theme{
+        width: 50%;
+
+
+        @include respond(S1200){
+            width: 40%;
+        }
+        @include respond(S900){
+            width: 25%;
+        }
+        @include respond(S600){
+            width: 20%;
+        }
+
+        .userButton{
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            margin: -3rem 0rem 10rem -12rem;
+            border: none;
+
+            .arrow{
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .text{
+                margin-left: 4px;
+                color: $text-color;
+            }
+            background-color: $bg-color;
+        }
+    }
+
+    .img{
+        width: 50%;
+        object-fit: cover;
+        @include respond(S1200){
+            width: 40%;
+            object-fit: scale-down;
+        }
+
+        @include respond(S900){
+            width: 35%;
+        }
+    }
+
+}
