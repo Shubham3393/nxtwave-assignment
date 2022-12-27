@@ -11,7 +11,8 @@
     justify-content: flex-start;
     background-color: white;
     // box-sizing: border-box;
-    width: 31rem;
+    // width: 31rem;
+    flex: 1 1 31rem;
     border-radius: $border-radius;
     margin:  0rem $margin-in-between   $margin-in-between 0rem;
     @include respond(S1500){

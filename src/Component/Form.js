@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { failToastHandler, successToastHandler } from '../Pages/CreateItem';
 
 
+
 const Form = (props) =>{
     //-----dispatch-----
     const dispatch = useDispatch();
@@ -25,6 +26,14 @@ const Form = (props) =>{
 
     //-----useState-----
     const [clientId, setClientId] = useState(0);
+    const [title, setTitle] = useState(true);
+    const [icon, setIcon] = useState(true);
+    const [link, setLink] = useState(true);
+    const [tag, setTag] = useState(true);
+    const [description, setDescription] = useState(true);
+    const [category, setCategory] = useState(true);
+
+
     // const [isDisable, setIsDisable] = useState(false);
 
     //-----posting item-----
@@ -61,6 +70,32 @@ const Form = (props) =>{
     const onSubmitHandler = (event) => {
         event.preventDefault();
         
+        if(titleRef.current.value === "" ){
+            setTitle(false);
+        }
+        else setTitle(true);
+        if(categoryRef.current.value === "" ){
+            setCategory(false);
+        }
+        else setCategory(true);
+        if(linkRef.current.value === ""  ){
+            setLink(false);
+        }
+        else setLink(true);
+        if(descriptionRef.current.value === ""  ){
+            setDescription(false);
+        }
+        else setDescription(true);
+        if(iconRef.current.value === "" ){
+            setIcon(false);
+        }
+        else setIcon(true);
+        if(tagRef.current.value === ""  ){
+            setTag(false);
+        }
+        else setTag(true);
+
+
         if(titleRef.current.value === "" 
             || tagRef.current.value === "" 
             || categoryRef.current.value === "" 
@@ -69,6 +104,14 @@ const Form = (props) =>{
             || iconRef.current.value === ""
          ) failToastHandler("All inputs are mandatory", toast.POSITION.BOTTOM_LEFT);
         else{
+
+            // if(!title) setTitle(true);
+            // if(!category) setCategory(true);
+            // if(!tag) setTag(true);
+            // if(!link) setLink(true);
+            // if(!description) setDescription(true);
+            // if(!icon) setIcon(true);
+
             setClientId(prev => prev+1);
             // console.log("submit1")
             const client = {
@@ -94,24 +137,37 @@ const Form = (props) =>{
         
     }
 
+    const validHandler = (input, classtemp) => {
+        if(input) return classtemp;
+        return  ` ${classtemp} ${classes.invalid}`;
+    }
+
+
+    const titleClassName = title === true ? classes.input : classes.invalid;
+    const iconClassName = title === true ? `${classes.input} ${classes.link}` : classes.invalid;
+    const descriptionClassName = title === true ? `${classes.input} ${classes.description}` : classes.invalid;
+    const linkClassName = title === true ? `${classes.input} ${classes.link}`: classes.invalid;
+    const categoryClassName = title === true ?  `${classes.input}` : classes.invalid;
+    const tagClassName = title === true ? `${classes.input} ${classes.tag}` : classes.invalid;
+
     return (
         <form onSubmit={onSubmitHandler} className={classes.form}>
             <h1 className={classes.title}>Item Details</h1>
             <div className={classes.input_box}>
                 <label className={classes.label}>Item Title</label>
-                <input type='text'className={classes.input} ref={titleRef}/>
+                <input type='text'className={validHandler(title, `${classes.input}`)} ref={titleRef}/>
             </div>
             <div className={classes.input_box}>
                 <label className={classes.label}>Link</label>
-                <input type='text'className={`${classes.input} ${classes.link}`} ref={linkRef} />
+                <input type='text'className={validHandler(title, `${classes.input} ${classes.link}`)} ref={linkRef} />
             </div>
             <div className={classes.input_box}>
                 <label className={classes.label}>Icon Url</label>
-                <input type='text'className={`${classes.input} ${classes.link}`} ref={iconRef} />
+                <input type='text'className={validHandler(title, `${classes.input} ${classes.link}`)} ref={iconRef} />
             </div>
             <div className={classes.input_box}>
                 <label className={classes.label}>Tag Name</label>
-                <select className={`${classes.input} ${classes.tag}`} ref={tagRef} >
+                <select className={validHandler(title, `${classes.input} ${classes.tag}`)} ref={tagRef} >
                     <option value="">--Please choose an option--</option>
                     <option value="users">Users</option>
                     <option value="resources">Resources</option>
@@ -120,11 +176,11 @@ const Form = (props) =>{
             </div>
             <div className={classes.input_box}>
                 <label className={classes.label}>Category</label>
-                <input type='text'className={classes.input} ref={categoryRef} />
+                <input type='text'className={validHandler(title,  `${classes.input}`)} ref={categoryRef} />
             </div>
             <div className={classes.input_box}>
                 <label className={classes.label}>Description</label>
-                <input type='text'className={`${classes.input} ${classes.description}`} ref={descriptionRef}/>
+                <input type='text'className={validHandler(title, `${classes.input} ${classes.description}`)} ref={descriptionRef}/>
             </div>
             <button className={classes.btn}>CREATE</button>
         </form>

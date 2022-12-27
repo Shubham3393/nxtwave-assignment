@@ -73,7 +73,7 @@ const Home = () =>{
             <Navbar addItem={addItem} />
             <Theme className={classes.theme}>
                 <div className={classes.buttons}>
-                <button className={classes.btn} onClick={()=>setClientType("resource")} style={clientType === "resource" ? {backgroundColor : "#1051ca", color : "white"} : {}}>Resources</button>
+                    <button className={classes.btn} onClick={()=>setClientType("resource")} style={clientType === "resource" ? {backgroundColor : "#1051ca", color : "white"} : {}}>Resources</button>
                     <button className={classes.btn} onClick={()=>setClientType("request")} style={clientType === "request" ? {backgroundColor : "#1051ca", color : "white"} : {}}>Requests</button>
                     <button className={classes.btn} onClick={()=>setClientType("user")} style={clientType === "user" ? {backgroundColor : "#1051ca", color : "white"} : {}}>Users</button>
                 </div>

@@ -13,6 +13,11 @@
         flex-direction: column;
         margin: $margin-small 0rem $margin-small 0rem;
 
+        .invalid{
+            background-color: red;
+            border: 1px red solid;
+        }
+
         .label{
             text-transform: uppercase;
             margin: $margin-small 0rem $margin-small 0rem;
